@@ -1,7 +1,20 @@
 # Программа  для сортировки списков словарей по дате и по ключу у которой есть определённый параметр
+# Модуль генераторов для работы с транзакциями
 
-## Это программа написана на языке программирования python
 ## Установка
+## Функции
+```commandline
+filter_by_currency(transactions, currency)
+```
+Фильтрует транзакции по заданной валюте. Возвращает итератор транзакций с заданной валютой.
+```commandline
+transaction_descriptions(transactions)
+```
+Возвращает описание каждой транзакции по очереди.
+```commandline
+card_number_generator(start, end)
+```
+Генерирует номера банковских карт в заданном диапазоне.
 
 1. Клонируйте репозиторий
 
@@ -17,12 +30,19 @@ import pytest
 from src.processing import filter_by_state, sort_by_date
 from src.widget import mask_account_card
 from src.masks import get_mask_card_number, get_mask_account
+from typing import List, Dict, Iterator, Any
+from src.generators import filter_by_currency, transaction_descriptions, card_number_generator
 ```
 
 3. Установите инструменты:
 
 ```commandline
 pip install flake8 mypy black pytest
+```
+### Запуск тестов
+Для запуска тестов используется команда:
+```commandline
+pytest test_generators.py
 ```
 
 ## Использование:
