@@ -2,6 +2,12 @@
 # Модуль генераторов для работы с транзакциями
 
 ## Установка
+## Декоратор логирования
+
+## log
+Декоратор `log` используется для логирования выполнения функций. 
+Принимает необязательный аргумент `filename` для указания файла, 
+в который будут записываться логи. Если `filename` не указан, вывод идет в консоль.
 ## Функции
 ```commandline
 filter_by_currency(transactions, currency)
@@ -26,6 +32,10 @@ git@github.com:sadslon/git-poetry-test.git
 
 ```commandline
 from datetime import datetime
+import functools
+import logging
+import sys
+from src.decorators import log
 import pytest
 from src.processing import filter_by_state, sort_by_date
 from src.widget import mask_account_card
